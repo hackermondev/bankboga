@@ -8,12 +8,7 @@ function validateUsername(username) {
     if (username === undefined)
         return false
 
-    const match = username.match(/^([A-Za-z0-9._ ]+)#\d{4}$/)
-
-    if (match)
-        return match[1]
-
-    return false
+    return true
 }
 
 function validatePassword(password) {
