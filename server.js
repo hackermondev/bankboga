@@ -2,7 +2,7 @@ const port = process.env['PORT'] || 8080
 
 const express = require('express')
 const path = require('path')
-const https = require('https')
+const http = require('http')
 const fs = require('fs')
 
 const app = express()
@@ -67,10 +67,7 @@ app.use((err, req, res, next) => {
     })
 })
 
-https.createServer({
-	key: fs.readFileSync('server.key'),
-	cert: fs.readFileSync('server.cert')
-}, app).listen(port, () => {
+http.createServer(app).listen(port, () => {
 	console.log(`Https server is listening! Port: ${port}`)
 })
 
